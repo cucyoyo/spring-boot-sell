@@ -15,7 +15,13 @@ public class LoggerTest {
     @Test
     public void test1() {
 
+        logger.debug("debug");
         logger.info("info");
+        String name = "yoyo";
+        String add = "beijing";
+        logger.info("name:" + name + ",add:" + add);
+        logger.info("name: {}, add: {}", name, add);
+        logger.error("error");
 
     }
 }

@@ -12,7 +12,7 @@ create table `product_info` (
 ) comment '商品表';
 
 create table `product_category`(
-  `category_id` int not null auto_increament,
+  `category_id` int not null auto_increment,
   `category_name` varchar(64) not null comment '类目名字',
   `category_type` int not null comment '类目编号',
   `create_time` timestamp not null default current_timestamp comment '创建时间',
@@ -33,7 +33,7 @@ create table `order_master` (
   `create_time` timestamp not null default current_timestamp comment '创建时间',
   `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
   primary key(`order_id`),
-  key 'idx_buyer_opentid' (`buyer_openid`)
+  key `idx_buyer_opentid` (`buyer_openid`)
 ) comment '订单表';
 
 create table `order_detail` (

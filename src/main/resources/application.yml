@@ -15,3 +15,12 @@ spring:
       ddl-auto: update # 用update，不会清空再新建表，（第一次运行，创建；如果表已经存在，则不会被清空）
       # ddl-auto其他选项：create-drop应用停下来的时候把表删掉；none：不做操作；validate：验证类里面的属性是否与表结构里的一致
     show-sql: true # 在控制台里面看到sql语句
+
+#除了用logback-spring.xml,也可以在这里简单配置日志输出格式
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+##  path: /var/log/tomcat/
+#  file: /var/log/tomcat/sell.log
+#  level:
+#    com.imooc.LoggerTest: debug

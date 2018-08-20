@@ -13,6 +13,11 @@ phpstudy 集成环境升级 MySQL 版本
 
 Utf8mb4 --  表情可以保存在数据库
 
+- logback配置
+    - 区分info和error
+    - 每天产生一个日志文件
+
+
 ## 填坑
 - IntelliJ IDEA下"Cannot resolve symbol 'log'"的解决方法
 IntelliJ IDEA，导入后可以编译运行。但是输出日志的log.xxxx();语句中的‘log’都显示为红色，鼠标放上去后显示:Cannot resolve symbol 'log'。
