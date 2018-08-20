@@ -29,3 +29,18 @@ IntelliJ IDEA，导入后可以编译运行。但是输出日志的log.xxxx();�
 2.输入lom后选择Install，安装插件
 
 3.按照提示重启IDEA即可
+
+- 引入Lombok Plugin
+file - settings - plugin - browse repository - lombok
+遇到无法链接 time out的问题：
+    - 设置代理
+    ![](./imgs/plugin-proxy.png)
+    
+- could not initialize proxy - no Session
+https://blog.csdn.net/zhangjq520/article/details/53740971
+
+这是由于我们使用懒加载加载数据的方法，当我们要获取的数据的时候，但是session已经关闭了，我们支持在Spring MVC中需要配置一个OpenEntityManagerInViewFilter 过滤器，Spring针对Hibernate的非JPA实现用的是OpenSessionInViewFilter，那么在Spring Boot中怎么支持呢？
+
+特别特别的简单，只需要在application.properties中加入如下配置：
+
+spring.jpa.open-in-view=true

@@ -1,22 +1,18 @@
 spring:
-  main:
-    web-environment: false
-  profiles:
-    active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://127.0.0.1:3306/dbgirl
-    url: jdbc:mysql://127.0.0.1:3306/dbgirl?characterEncoding=utf8&useSSL=true
     username: root
     password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/sell?characterEncoding=utf-8&useSSL=false
   jpa:
-    hibernate:
-#      ddl-auto: create # 在运行时自动创建一个表（每次运行项目，重新创建表，会把之前的数据清空）
-      ddl-auto: update # 用update，不会清空再新建表，（第一次运行，创建；如果表已经存在，则不会被清空）
-      # ddl-auto其他选项：create-drop应用停下来的时候把表删掉；none：不做操作；validate：验证类里面的属性是否与表结构里的一致
-    show-sql: true # 在控制台里面看到sql语句
-
-#除了用logback-spring.xml,也可以在这里简单配置日志输出格式
+    show-sql: true
+#  jackson:
+#    default-property-inclusion: non_null
+#  redis:
+#    host: 192.168.30.113
+#    port: 6379
+server:
+  context-path: /sell
 #logging:
 #  pattern:
 #    console: "%d - %msg%n"
@@ -24,3 +20,20 @@ spring:
 #  file: /var/log/tomcat/sell.log
 #  level:
 #    com.imooc.LoggerTest: debug
+
+#wechat:
+#  mpAppId: wxd898fcb01713c658
+#  mpAppSecret: 47ccc303338cee6e62894fxxxxxxxxxxx
+#  openAppId: wx6ad144e54af67d87
+#  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+#  mchId: 1483469312
+#  mchKey: 06C56A89949D617xxxxxxxxxxx
+#  keyPath: /var/weixin_cert/h5.p12
+#  notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+#  templateId:
+#    orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
+#
+#projectUrl:
+#  wechatMpAuthorize: http://sell.natapp4.cc
+#  wechatOpenAuthorize: http://sell.natapp4.cc
+#  sell: http://sell.natapp4.cc
