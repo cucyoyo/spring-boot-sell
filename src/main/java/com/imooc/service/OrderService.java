@@ -4,10 +4,6 @@ import com.imooc.dto.OrderDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-/**
- * Created by 廖师兄
- * 2017-06-11 18:23
- */
 public interface OrderService {
 
     /** 创建订单. */

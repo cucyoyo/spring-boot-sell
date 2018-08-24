@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * 类目
-
  */
 public interface CategoryService {
 

@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 买家商品
+ * 买家商品，给买家端返回所有商品列表
  */
 @RestController
 @RequestMapping("/buyer/product")
