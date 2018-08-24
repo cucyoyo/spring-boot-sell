@@ -1,4 +1,4 @@
-package com.imooc.impl;
+package com.imooc.service.impl;
 
 import com.imooc.dataobject.ProductInfo;
 import com.imooc.enums.ProductStatusEnum;

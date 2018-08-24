@@ -5,7 +5,7 @@
 ![](./imgs/db.png)
 
 ## 数据库设计
-- 数据库版本升级（必须使用5.7版本的MySQL,否则default current_timestamp不能生效）
+- 数据库版本升级（必须使用**5.7**版本的MySQL,否则default current_timestamp不能生效）
 phpstudy 集成环境升级 MySQL 版本
 来自 <https://laravel-china.org/articles/4281/phpstudy-integrated-environment-upgrade-mysql-version> 
 
@@ -44,3 +44,23 @@ https://blog.csdn.net/zhangjq520/article/details/53740971
 特别特别的简单，只需要在application.properties中加入如下配置：
 
 spring.jpa.open-in-view=true
+
+- 大小写快捷切换
+ctrl + shift + u
+
+- Could not autowire. No beans of 'xxxx' type found
+可能引入的类忘记添加@Service注解
+
+- synchronized为了防止多线程时产生相同的随机数     
+```
+// synchronized为了防止多线程时产生相同的随机数
+public static synchronized String genUniqueKey() {
+  Random random = new Random();
+  Integer number = random.nextInt(900000) + 100000; // 六位随机数
+
+  return System.currentTimeMillis() + String.valueOf(number);
+}
+```
+
+- 多线程条件下，防止“超卖”。
+多线程的情况下，两个订单同时扣库存可能造成扣小于零的情况，后面使用radis锁进行处理

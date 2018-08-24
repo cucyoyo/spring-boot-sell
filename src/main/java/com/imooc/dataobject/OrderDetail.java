@@ -33,5 +33,4 @@ public class OrderDetail {
     /** 商品小图. */
     private String productIcon;
 
-//    @Transient 可以用这个注解让数据库对象忽略下面的属性，这样就可以在这个对象中加入别的属性，但这个做法不推荐，项目使用dto解决
 }

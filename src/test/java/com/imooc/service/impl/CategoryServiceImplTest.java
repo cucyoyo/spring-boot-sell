@@ -1,4 +1,4 @@
-package com.imooc.impl;
+package com.imooc.service.impl;
 
 import com.imooc.dataobject.ProductCategory;
 import com.imooc.service.impl.CategoryServiceImpl;
