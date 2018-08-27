@@ -51,14 +51,37 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
+        <!--引入注解@Data @Slf4j需要的依赖，需要IDEA引入lombok插件配合使用-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!--json格式化工具-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+        </dependency>
+
+        <!--微信授权用到的sdk： https://github.com/Wechat-Group/weixin-java-tools  这个第三方SDK实现了微信公众号的一些方法-->
+        <!--网页授权相关wiki https://github.com/Wechat-Group/weixin-java-tools/wiki/MP_OAuth2%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83-->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-mp</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <!--微信支付用到的sdk-->
+        <dependency>
+            <groupId>cn.springboot</groupId>
+            <artifactId>best-pay-sdk</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+        <!--动态注入参数模板使用的依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
     </dependencies>

@@ -75,3 +75,33 @@ public static synchronized String genUniqueKey() {
     
     
 - 一个好的习惯：先用注释将要开发的功能列出来
+- double类型的数据比较，不能直接equals比较，应该相减小于某个精度进行判断
+
+### 微信网页授权
+- [官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1445241432)
+- [调试](https://natapp.cn/)
+- [第三方sdk](https://github.com/Wechat-Group/weixin-java-tools)
+
+- 坑啊  个人账号无法使用支付功能
+
+- 难点：【手工获取openid】:（**第一步需要设置一个外网地址，本地可以访问的**）
+    - 申请一个测试号
+    - 设置域名（微信白名单校验）：使用工具natapp，买一个账号，要下载软件，启动转发（将外网地址指到127.0.0.1:8080等等），校验文件放到网站根目录
+    - 获取code：有一个scope参数，base（用户无感知、获取信息较少）、userInfo（点击之后有弹窗，用户确认登录）
+    - 换取access_token
+    
+- 自动获取：用到第三方sdk（主要涉及几个回调和重定向）
+
+
+### 微信支付
+- [文档](https://pay.weixin.qq.com/wiki)
+- [SDK](https://github.com/Pay-Group/best-pay-sdk)
+
+- 【重要】【支付流程】由于没有企业号，无法调用支付的接口，所以这里没有去做，但这里应该去做的具体流程是
+    - 授权（获取openId，支付中会用到）（可以用到测试号进行测试）
+    - 支付
+    - 授权 + 支付
+    
+- 调试工具：
+    - fidler:将手机的网络请求转到电脑上抓包
+    - natapp 用于微信白名单校验，需要使用到外网域名
