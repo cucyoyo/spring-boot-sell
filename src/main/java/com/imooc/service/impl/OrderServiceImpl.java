@@ -119,7 +119,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
-    // 查询订单列表
+    // 查询订单列表（某个买家）
     @Override
     public Page<OrderDTO> findList(String buyerOpenid, Pageable pageable) {
         // 这里不需要订单详情，只要订单master表里的东西就好了
@@ -225,7 +225,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    // 查询订单列表（所有买家）
     public Page<OrderDTO> findList(Pageable pageable) {
-        return null;
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+
+        List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
+
+        return new PageImpl<>(orderDTOList, pageable, orderMasterPage.getTotalElements());
     }
 }

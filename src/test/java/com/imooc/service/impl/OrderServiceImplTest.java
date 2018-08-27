@@ -102,10 +102,12 @@ public class OrderServiceImplTest {
     }
 
     @Test
+    // 查询所有订单
     public void list() {
         PageRequest request = new PageRequest(0,2);
         Page<OrderDTO> orderDTOPage = orderService.findList(request);
 //        Assert.assertNotEquals(0, orderDTOPage.getTotalElements());
+        log.info("orderDTOPage",orderDTOPage.getContent());
         Assert.assertTrue("查询所有的订单列表", orderDTOPage.getTotalElements() > 0);
     }
 
