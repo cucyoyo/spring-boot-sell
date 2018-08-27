@@ -6,8 +6,10 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
-#  jackson:
-#    default-property-inclusion: non_null
+
+  # @JsonInclude(JsonInclude.Include.NON_NULL) // (可以到配置文件中统一配置)忽略值为空的json，返回前端时，json里面为空的字段直接不显示，而不是{xxx:null}
+  jackson:
+    default-property-inclusion: non_null
 #  redis:
 #    host: 192.168.30.113
 #    port: 6379

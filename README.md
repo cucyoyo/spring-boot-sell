@@ -62,8 +62,11 @@ public static synchronized String genUniqueKey() {
 }
 ```
 
-- 多线程条件下，防止“超卖”。
+- 多线程条件下，防止“超卖”。【重点问题】
 多线程的情况下，两个订单同时扣库存可能造成扣小于零的情况，后面使用radis锁进行处理
+
+- 越权访问的问题，订单findOne 【重点问题】
+
 
 - 一个模块开发的步骤
     - DAO层

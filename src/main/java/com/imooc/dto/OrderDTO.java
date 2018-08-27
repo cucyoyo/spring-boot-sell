@@ -1,12 +1,14 @@
 package com.imooc.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.imooc.dataobject.OrderDetail;
 import com.imooc.enums.OrderStatusEnum;
 import com.imooc.enums.PayStatusEnum;
 //import com.imooc.utils.EnumUtil;
 //import com.imooc.utils.serializer.Date2LongSerializer;
+import com.imooc.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -17,7 +19,7 @@ import java.util.List;
 
 @Data
 //@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-//@JsonInclude(JsonInclude.Include.NON_NULL)
+//@JsonInclude(JsonInclude.Include.NON_NULL) // (可以到配置文件中统一配置)忽略值为空的json，返回前端时，json里面为空的字段直接不显示，而不是{xxx:null}
 public class OrderDTO {
 
     /** 订单id. */
@@ -44,19 +46,19 @@ public class OrderDTO {
     /** 支付状态, 默认为0未支付. */
     private Integer payStatus;
 
-    /** 创建时间. */
-    private Date createTime;
-
-    /** 更新时间. */
-    private Date updateTime;
-
 //    /** 创建时间. */
-//    @JsonSerialize(using = Date2LongSerializer.class)
 //    private Date createTime;
 //
 //    /** 更新时间. */
-//    @JsonSerialize(using = Date2LongSerializer.class)
 //    private Date updateTime;
+
+    /** 创建时间. */
+    @JsonSerialize(using = Date2LongSerializer.class) // 这个注解用于将毫秒单位的时间除以1000变成秒
+    private Date createTime;
+
+    /** 更新时间. */
+    @JsonSerialize(using = Date2LongSerializer.class)
+    private Date updateTime;
 //
     List<OrderDetail> orderDetailList;
 //
