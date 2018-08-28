@@ -85,6 +85,12 @@
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
+        <!--使用redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -113,5 +113,73 @@ public static synchronized String genUniqueKey() {
 - 如果想要更新模板不想重建项目，每次修改完成后：选择`build-> build project`，项目不需要整体重建就可在网页更新，
     - 然后可以修改快捷键为 ctrl + s 
     - 只适用于更改模板文件
+    
+### 分布式系统
+- 多节点 - 分布式系统
+- 消息通信 - 集群
+- 不共享内存 - 分布式计算：分布式计算是共享内存的（hadoop）两个厨子炒一样的菜，最后放在一个盘子里，分不清哪个是谁炒的
+
+不共享主内存但通过网络消息合作，各个节点通过消息来通信：前端通过restful api访问后端接口
+
+- 注意：分布式计算是共享内存的（hadoop）两个厨子炒一样的菜，最后放在一个盘子里，分不清哪个是谁炒的
+
+两个后厨：
+- 一个洗菜一个炒菜：分布式：卖家端+买家端
+- 两个都炒菜：集群：卖家端部署在多台服务器上同样的代码（卖家端集群）
+
+- 分布式和集群的区别和联系
+    - 分布式指不同业务功能的节点，集群指相同功能的节点
+    - 分布式系统中每个节点都可以做集群（买家端、卖家端可以部署一个或n个成为集群）
+    - 集群的规模由节点的业务规模来决定
+    - 集群未必是分布式的，前后端未分离的一个系统，很多功能写在一起，就算用很多机器做了集群，但节点之间并不需要进行消息通信，所以它并不是分布式的
+
+- session
+    - 会话控制，http连接无状态，需要一个机制记录信息（key-value机制）
+    
+- key-value机制(全局唯一，一个用户一个标识)
+    - sessionId(在cookie里设置)
+    - token（可能配合签名保证安全）
+    ![](./imgs/session&token.png)
+    
+- 分布式集群两种方式
+    - 水平扩展：A1 A2两台机器完全相同的内容
+    - 垂直扩展：业务拆分 - A1 A2 A3分别负责商品、订单、类目不同的功能
+    
+- 一种解决分布式系统下session的方案：ip-hash，相同的用户都访问同一台服务器，这种方式弊端：在一台服务器压力过大挂掉以后，这台服务器的用户就都不能用了
+- 通用的解决方案：用一个专门的服务保存用户session，不同的服务需要session的时候都去找他要
 
 
+### 登录登出功能
+- 文档:微信开放平台---https://open.weixin.qq.com -- 资源中心 -- 网站应用 -- 微信登录功能
+- 这尼玛开放平台的登录功能也必须是企业账号
+
+
+### redis
+- 工具：redis desktop manager
+- 命令行连接（需要安装）：redis-cli -h 192.168.30.113
+
+- 使用redis：
+1. 引入依赖
+```xml
+ <!--使用redis-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
+2. 配置
+```
+spring:
+  redis:
+    host: 192.168.30.113
+    port: 6379
+    password
+```
+3. Autowired引入项目 + 使用
+```
+@Autowired
+private StringRedisTemplate redisTemplate;
+```
+```
+redisTempalte.opsForValue().set("","")
+```
