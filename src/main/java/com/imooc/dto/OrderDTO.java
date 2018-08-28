@@ -8,6 +8,7 @@ import com.imooc.enums.OrderStatusEnum;
 import com.imooc.enums.PayStatusEnum;
 //import com.imooc.utils.EnumUtil;
 //import com.imooc.utils.serializer.Date2LongSerializer;
+import com.imooc.utils.EnumUtil;
 import com.imooc.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
@@ -59,16 +60,16 @@ public class OrderDTO {
     /** 更新时间. */
     @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
-//
+
     List<OrderDetail> orderDetailList;
-//
-//    @JsonIgnore
-//    public OrderStatusEnum getOrderStatusEnum() {
-//        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
-//    }
-//
-//    @JsonIgnore
-//    public PayStatusEnum getPayStatusEnum() {
-//        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
-//    }
+
+    @JsonIgnore // 转成json格式时，忽略
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class); // todo 第二个参数不是很懂
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 }

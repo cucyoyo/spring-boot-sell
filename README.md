@@ -105,3 +105,13 @@ public static synchronized String genUniqueKey() {
 - 调试工具：
     - fidler:将手机的网络请求转到电脑上抓包
     - natapp 用于微信白名单校验，需要使用到外网域名
+    
+    
+### 卖家端页面
+- freemarker(spring-boot-starter-freemarker)
+
+- 如果想要更新模板不想重建项目，每次修改完成后：选择`build-> build project`，项目不需要整体重建就可在网页更新，
+    - 然后可以修改快捷键为 ctrl + s 
+    - 只适用于更改模板文件
+
+

@@ -79,6 +79,7 @@
         </dependency>
 
         <!--动态注入参数模板使用的依赖-->
+        <!--前端模板-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
